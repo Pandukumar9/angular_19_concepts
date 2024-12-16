@@ -1,0 +1,175 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">User Registration Form</h2>
+  <p>Form Status: {{ userForm.status }}</p>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        formControlName="firstName"
+        placeholder="Enter your first name"
+      />
+      <div
+        *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched"
+        class="text-danger mt-1"
+      >
+        First name is required.
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        formControlName="lastName"
+        placeholder="Enter your last name"
+      />
+      <div
+        *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched"
+        class="text-danger mt-1"
+      >
+        <div *ngIf="userForm.get('lastName')?.errors?.['required']">
+          Last name is required.
+        </div>
+        <div *ngIf="userForm.get('lastName')?.errors?.['minlength']">
+          Last name must be at least 3 characters.
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div formGroupName="address" class="mb-4">
+      <h4>Address</h4>
+      <div class="mb-3">
+        <label for="street" class="form-label">Street</label>
+        <input
+          type="text"
+          id="street"
+          class="form-control"
+          formControlName="street"
+          placeholder="Enter your street"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input
+          type="text"
+          id="city"
+          class="form-control"
+          formControlName="city"
+          placeholder="Enter your city"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="state" class="form-label">State</label>
+        <input
+          type="text"
+          id="state"
+          class="form-control"
+          formControlName="state"
+          placeholder="Enter your state"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="zip" class="form-label">Zip Code</label>
+        <input
+          type="text"
+          id="zip"
+          class="form-control"
+          formControlName="zip"
+          placeholder="Enter your zip code"
+        />
+        <div
+          *ngIf="userForm.get('address.zip')?.invalid && userForm.get('address.zip')?.touched"
+          class="text-danger mt-1"
+        >
+          Zip code must be 5 digits.
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <!-- <div formArrayName="languages" class="mb-4">
+      <h4>Languages</h4>
+      <div
+        *ngFor="let language of languages.controls; let i = index"
+        class="d-flex align-items-center mb-2"
+      >
+        <input
+          [id]="'language-' + i"
+          [formControlName]="i"
+          class="form-control me-2"
+          placeholder="Enter language"
+        />
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="removeLanguage(i)"
+        >
+          Remove
+        </button>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" (click)="addLanguage()">
+        Add Language
+      </button>
+    </div> -->
+
+    <div formArrayName="languages" class="mb-4">
+      <h4>Languages</h4>
+      <div
+        *ngFor="let languageGroup of languages.controls; let i = index"
+        [formGroupName]="i"
+        class="d-flex align-items-center mb-3"
+      >
+        <!-- Language Field -->
+        <input
+          [id]="'language-' + i"
+          formControlName="language"
+          class="form-control me-2"
+          placeholder="Enter language"
+        />
+
+        <!-- Level Dropdown -->
+        <select
+          [id]="'level-' + i"
+          formControlName="level"
+          class="form-select me-2"
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <!-- Remove Button -->
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          (click)="removeLanguage(i)"
+        >
+          Remove
+        </button>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-sm" (click)="addLanguage()">
+        Add Language
+      </button>
+    </div>
+
+
+    <!-- Form Actions -->
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">
+        Submit
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
