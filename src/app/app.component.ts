@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { ReactFormComponent } from './forms/react-form/react-form.component';
 import { TemplateFormComponent } from './forms/template-form/template-form.component';
-import { IMAGE_CONFIG, NgOptimizedImage } from '@angular/common';
+import { IMAGE_CONFIG } from '@angular/common';
+import { ReuseSkeletonComponent } from './reuse-comp/reuse-skeleton/reuse-skeleton.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactFormComponent,TemplateFormComponent,NgOptimizedImage],
+  imports: [ReactFormComponent,TemplateFormComponent,ReuseSkeletonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [
@@ -20,4 +20,8 @@ import { IMAGE_CONFIG, NgOptimizedImage } from '@angular/common';
 })
 export class AppComponent {
   title = 'angular_19_concepts';
+
+  isLoading:boolean = false;
+
+  data = ['test' , 'test1' , 'test3'];
 }

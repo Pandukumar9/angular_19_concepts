@@ -1,0 +1,13 @@
+<div class="skeleton">
+  <div
+    class="skeleton-item"
+    *ngFor="let item of items; let i = index"
+    [ngStyle]="{
+      width: width,
+      height: height,
+      backgroundColor: color
+    }"
+    [class.circle]="type === 'circle'"
+    [class.square]="type === 'square'"
+  ></div>
+</div>
