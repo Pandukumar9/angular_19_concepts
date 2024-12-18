@@ -1,4 +1,8 @@
-.my-custom-skeleton .skeleton-item {
-  height: 40px;
-  border-radius: 8px;
+::ng-deep .custom-rectangle {
+  width: 40% !important; // Custom width (applies to skeleton-item if correctly bound)
+  height: 40px; // Example height
+  border: 2px solid red; // Add a noticeable style for debugging
 }
+
+// If the styles are not applied, check if Angular's View Encapsulation is affecting your CSS.
+//  Use the ::ng-deep selector to force styles if necessary.

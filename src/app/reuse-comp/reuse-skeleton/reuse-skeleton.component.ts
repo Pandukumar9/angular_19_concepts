@@ -1,9 +1,9 @@
-import { NgFor, NgStyle } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-reuse-skeleton',
-  imports: [NgFor,NgStyle],
+  imports: [NgFor,NgStyle,NgClass,NgIf],
   templateUrl: './reuse-skeleton.component.html',
   styleUrl: './reuse-skeleton.component.scss'
 })
@@ -16,6 +16,7 @@ export class ReuseSkeletonComponent {
   @Input() color: string = '#e0e0e0'; // Skeleton base color
   @Input() shimmerColor: string = '#f0f0f0'; // Shimmer effect color
   @Input() customClass: string = ''; // Custom class for styling
+  @Input() imageUrl: string = ''; // Image URL for the circular loader
 
   get items(): number[] {
     return Array(this.itemCount).fill(0);

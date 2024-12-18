@@ -1,13 +1,11 @@
 <div class="skeleton">
-  <div
-    class="skeleton-item"
-    *ngFor="let item of items; let i = index"
-    [ngStyle]="{
+  <div class="skeleton-item" *ngFor="let item of items; let i = index" [ngStyle]="{
       width: width,
       height: height,
       backgroundColor: color
-    }"
-    [class.circle]="type === 'circle'"
-    [class.square]="type === 'square'"
-  ></div>
+    }" [class.circle]="type === 'circle'" [class.square]="type === 'square'" [ngClass]="customClass">
+ <!-- Add image if URL is provided -->
+ <img *ngIf="type === 'circle' && imageUrl" [src]="imageUrl" class="center-image" alt="Loader Image" />
+  </div>
+
 </div>
