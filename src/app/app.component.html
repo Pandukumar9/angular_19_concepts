@@ -26,3 +26,15 @@
   shimmerColor="#dddddd"
   imageUrl="girl.png"
 ></app-reuse-skeleton>
+
+
+<div *ngFor="let item of paginatedItems">
+  {{ item }}
+</div>
+
+<app-reuse-pagination
+[totalItems]="items.length"
+[itemsPerPage]="itemsPerPage"
+[currentPage]="currentPage"
+(pageChange)="onPageChange($event)">
+</app-reuse-pagination>
