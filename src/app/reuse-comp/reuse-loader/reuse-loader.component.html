@@ -1,1 +1,16 @@
-<p>reuse-loader works!</p>
+<div class="spinner-overlay" *ngIf="show">
+  <div class="spinner-container">
+    <!-- Fixed Image (centered) -->
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Loading" class="spinner-image" />
+
+    <!-- Rotating Spinner -->
+    <div
+      class="progress-spinner"
+      [style.width.px]="spinnerSize"
+      [style.height.px]="spinnerSize"
+    ></div>
+
+    <!-- Loading Message (optional) -->
+    <p *ngIf="message" class="spinner-message">{{ message }}</p>
+  </div>
+</div>

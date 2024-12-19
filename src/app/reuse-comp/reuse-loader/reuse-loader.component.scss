@@ -1,0 +1,62 @@
+/* Full-screen overlay */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures it appears above other elements */
+}
+
+/* Spinner container */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* To position the spinner and image together */
+}
+
+/* Fixed Image (centered within spinner) */
+.spinner-image {
+  position: absolute;
+  width: 50px; /* Adjust image size relative to spinner size */
+  height: 50px;
+  object-fit: cover; /* Ensures the image fits nicely */
+  border-radius: 50%; /* Keeps the image circular */
+  z-index: 1; /* Ensure image appears above the spinner */
+  margin-bottom: 53px;
+}
+
+/* Rotating Spinner */
+.progress-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-top: 4px solid #007bff; /* Blue rotating border */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: relative;
+  z-index: 0; /* Ensure spinner appears below the image */
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Message styling */
+.spinner-message {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}

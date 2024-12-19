@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+/* Disable scrolling on the body when spinner is active */
+.no-scroll {
+  overflow: hidden;
+  height: 100%; /* Ensures the full height is locked */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

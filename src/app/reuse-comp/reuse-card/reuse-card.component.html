@@ -1,1 +1,10 @@
-<p>reuse-card works!</p>
+<div class="card">
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Card image" class="card-img-top" />
+  <div class="card-body">
+    <h5 *ngIf="title" class="card-title">{{ title }}</h5>
+    <p *ngIf="content" class="card-text">{{ content }}</p>
+  </div>
+  <div *ngIf="footer" class="card-footer">
+    {{ footer }}
+  </div>
+</div>

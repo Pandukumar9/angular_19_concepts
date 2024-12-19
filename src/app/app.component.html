@@ -38,3 +38,31 @@
 [currentPage]="currentPage"
 (pageChange)="onPageChange($event)">
 </app-reuse-pagination>
+
+
+
+<app-reuse-loader
+  [show]="isLoadingspinner"
+  [message]="'Please wait...'"
+  [imageUrl]="'girl.png'"
+  [spinnerSize]="60"
+></app-reuse-loader>
+<button (click)="toggleLoading()">Toggle Loading</button>
+
+
+<app-reuse-table
+  [data]="productData"
+  [columns]="productColumns"
+  [actions]="productActions"
+  [pagination]="paginationConfig"
+  (actionClick)="handleActionClick($event)"
+  (pageChange)="handlePageChange($event)"
+></app-reuse-table>
+
+
+<app-reuse-card
+  title="Fruit Basket"
+  content="A mix of fresh fruits perfect for a healthy snack!"
+  footer="Price: $25.99"
+  imageUrl="https://via.placeholder.com/300x150"
+></app-reuse-card>
