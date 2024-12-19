@@ -1,0 +1,27 @@
+.confirm-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-card-header {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.confirm-card-body {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.confirm-card-footer {
+  display: flex;
+  justify-content: space-between;
+}

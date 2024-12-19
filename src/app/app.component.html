@@ -59,10 +59,37 @@
   (pageChange)="handlePageChange($event)"
 ></app-reuse-table>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
 
-<app-reuse-card
-  title="Fruit Basket"
-  content="A mix of fresh fruits perfect for a healthy snack!"
-  footer="Price: $25.99"
-  imageUrl="https://via.placeholder.com/300x150"
-></app-reuse-card>
+<!-- <app-reuse-card
+title="Fruit Basket"
+content="A mix of fresh fruits perfect for a healthy snack!"
+footer="Price: $25.99"
+imageUrl="girl.png"
+></app-reuse-card> -->
+
+
+<app-reuse-card title="Custom Footer Example" imageUrl="girl.png">
+  <div content>
+    <p>This card has custom body content.</p>
+  </div>
+  <ng-template #footer>
+    <button class="btn btn-primary">Click Me</button>
+  </ng-template>
+</app-reuse-card>
+
+    </div>
+  </div>
+</div>
+
+<app-reuse-delete
+  title="Delete Item"
+  message="Are you sure you want to delete this item?"
+  confirmText="Delete"
+  cancelText="Cancel"
+  (onConfirm)="handleConfirm()"
+  (onCancel)="handleCancel()"
+></app-reuse-delete>
+

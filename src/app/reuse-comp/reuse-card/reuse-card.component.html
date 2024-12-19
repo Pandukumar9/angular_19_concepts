@@ -2,9 +2,12 @@
   <img *ngIf="imageUrl" [src]="imageUrl" alt="Card image" class="card-img-top" />
   <div class="card-body">
     <h5 *ngIf="title" class="card-title">{{ title }}</h5>
-    <p *ngIf="content" class="card-text">{{ content }}</p>
+    <ng-content select="[content]"></ng-content>
   </div>
-  <div *ngIf="footer" class="card-footer">
-    {{ footer }}
+  <div *ngIf="footer || hasFooterContent()" class="card-footer">
+    <ng-container *ngIf="footer; else projectedFooter">{{ footer }}</ng-container>
+    <ng-template #projectedFooter>
+      <ng-container *ngTemplateOutlet="footerContent"></ng-container>
+    </ng-template>
   </div>
 </div>

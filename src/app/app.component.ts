@@ -7,10 +7,11 @@ import { ReusePaginationComponent } from './reuse-comp/reuse-pagination/reuse-pa
 import { ReuseLoaderComponent } from './reuse-comp/reuse-loader/reuse-loader.component';
 import { ReuseTableComponent } from './reuse-comp/reuse-table/reuse-table.component';
 import { ReuseCardComponent } from './reuse-comp/reuse-card/reuse-card.component';
+import { ReuseDeleteComponent } from "./reuse-comp/reuse-delete/reuse-delete.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ReactFormComponent,TemplateFormComponent,ReuseSkeletonComponent,ReusePaginationComponent,NgFor,ReuseLoaderComponent,ReuseTableComponent,ReuseCardComponent],
+  imports: [ReactFormComponent, TemplateFormComponent, ReuseSkeletonComponent, ReusePaginationComponent, NgFor, ReuseLoaderComponent, ReuseTableComponent, ReuseCardComponent, ReuseDeleteComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   // providers: [
@@ -80,5 +81,15 @@ export class AppComponent {
 
   handlePageChange(event: any) {
     console.log('Page Change:', event);
+  }
+
+  handleConfirm(): void {
+    console.log('Confirmed!');
+    // Add your logic for the confirm action here (e.g., delete an item)
+  }
+
+  handleCancel(): void {
+    console.log('Cancelled!');
+    // Add your logic for the cancel action here (e.g., close the dialog)
   }
 }
