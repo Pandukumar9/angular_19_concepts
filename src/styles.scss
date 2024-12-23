@@ -7,3 +7,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  padding: 24px;
+  min-height: calc(100vh - 140px); /* Adjust height considering header/footer */
+  background-color: #f4f4f4;
+}

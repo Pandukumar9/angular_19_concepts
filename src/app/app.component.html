@@ -93,3 +93,31 @@ imageUrl="girl.png"
   (onCancel)="handleCancel()"
 ></app-reuse-delete>
 
+<app-reuse-header
+  title="My App"
+  logoUrl="https://via.placeholder.com/40"
+  [navLinks]="[
+    { label: 'Home', url: '/' },
+    { label: 'About', url: '/about' }
+  ]"
+   customClass="dark-theme-header"
+   [customStyles]="{ backgroundColor: '#333', color: '#fff' }"
+>
+  <button class="btn btn-primary">Login</button>
+</app-reuse-header>
+
+<main class="main-content">
+  <!-- Add your main content here -->
+  <p>Welcome to the app!</p>
+</main>
+
+<app-reuse-footer footerText="© 2024 My Company"  customClass="dark-theme-header"
+[customStyles]="{ backgroundColor: '#333', color: '#fff' }">
+  <button class="btn btn-secondary">Contact Us</button>
+</app-reuse-footer>
+
+<!-- <app-qr-scanner></app-qr-scanner> -->
+
+
+
+

@@ -1,1 +1,16 @@
-<p>reuse-header works!</p>
+<header class="header" [class]="customClass" [ngStyle]="customStyles">
+  <div class="header-left">
+    <img *ngIf="logoUrl" [src]="logoUrl" alt="Logo" class="header-logo" />
+    <h1 *ngIf="title" class="header-title">{{ title }}</h1>
+  </div>
+  <nav *ngIf="navLinks.length > 0" class="header-nav">
+    <ul>
+      <li *ngFor="let link of navLinks">
+        <a [href]="link.url">{{ link.label }}</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <ng-content></ng-content> <!-- Projects dynamic content -->
+  </div>
+</header>

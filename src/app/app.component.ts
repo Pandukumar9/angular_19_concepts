@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ReactFormComponent } from './forms/react-form/react-form.component';
 import { TemplateFormComponent } from './forms/template-form/template-form.component';
-import { CommonModule, IMAGE_CONFIG, NgFor } from '@angular/common';
+import { CommonModule, isPlatformBrowser, NgFor } from '@angular/common';
 import { ReuseSkeletonComponent } from './reuse-comp/reuse-skeleton/reuse-skeleton.component';
 import { ReusePaginationComponent } from './reuse-comp/reuse-pagination/reuse-pagination.component';
 import { ReuseLoaderComponent } from './reuse-comp/reuse-loader/reuse-loader.component';
 import { ReuseTableComponent } from './reuse-comp/reuse-table/reuse-table.component';
 import { ReuseCardComponent } from './reuse-comp/reuse-card/reuse-card.component';
 import { ReuseDeleteComponent } from "./reuse-comp/reuse-delete/reuse-delete.component";
+import { ReuseHeaderComponent } from './reuse-comp/reuse-header/reuse-header.component';
+import { ReuseFooterComponent } from './reuse-comp/reuse-footer/reuse-footer.component';
+// import { QrScannerComponent } from './qrcode/qr-scanner/qr-scanner.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ReactFormComponent, TemplateFormComponent, ReuseSkeletonComponent, ReusePaginationComponent, NgFor, ReuseLoaderComponent, ReuseTableComponent, ReuseCardComponent, ReuseDeleteComponent],
+  imports: [ReactFormComponent,CommonModule, TemplateFormComponent, ReuseSkeletonComponent, ReusePaginationComponent, NgFor, ReuseLoaderComponent, ReuseTableComponent, ReuseCardComponent, ReuseDeleteComponent,ReuseHeaderComponent,ReuseFooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   // providers: [
@@ -91,5 +94,26 @@ export class AppComponent {
   handleCancel(): void {
     console.log('Cancelled!');
     // Add your logic for the cancel action here (e.g., close the dialog)
+  }
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Safely access `document` here
+      document.title = 'Welcome to Angular App';
+      console.log('This code runs only in the browser.');
+    }
+  }
+
+
+
+  someMethod(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Example: Add event listeners
+      window.addEventListener('scroll', () => {
+        console.log('User is scrolling!');
+      });
+    }
   }
 }

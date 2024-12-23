@@ -1,9 +1,9 @@
-import { NgIf } from '@angular/common';
-import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-reuse-card',
-  imports: [NgIf],
+  imports: [NgIf,CommonModule],
   templateUrl: './reuse-card.component.html',
   styleUrl: './reuse-card.component.scss'
 })

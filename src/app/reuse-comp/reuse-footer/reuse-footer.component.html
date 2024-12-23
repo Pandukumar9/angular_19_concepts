@@ -1,1 +1,11 @@
-<p>reuse-footer works!</p>
+<footer class="footer" [class]="customClass" [ngStyle]="customStyles">
+  <p class="footer-text">{{ footerText }}</p>
+  <ng-content></ng-content> <!-- Projects dynamic content -->
+  <nav *ngIf="links.length > 0" class="footer-nav">
+    <ul>
+      <li *ngFor="let link of links">
+        <a [href]="link.url">{{ link.label }}</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
