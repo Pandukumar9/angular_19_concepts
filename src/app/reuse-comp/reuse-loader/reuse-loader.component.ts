@@ -13,14 +13,14 @@ export class ReuseLoaderComponent implements OnChanges{
   @Input() imageUrl: string = ''; // Optional image URL
   @Input() spinnerSize: number = 50; // Spinner size in pixels
 
-  constructor(private document:Document){}
+  constructor(){}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['show']) {
       if (this.show) {
-        this.document.body.classList.add('no-scroll'); // Disable background scrolling
+        document.body.classList.add('no-scroll'); // Disable background scrolling
       } else {
-        this.document.body.classList.remove('no-scroll'); // Re-enable scrolling
+        document.body.classList.remove('no-scroll'); // Re-enable scrolling
       }
     }
   }

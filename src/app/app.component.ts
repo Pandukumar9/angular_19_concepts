@@ -10,6 +10,7 @@ import { ReuseCardComponent } from './reuse-comp/reuse-card/reuse-card.component
 import { ReuseDeleteComponent } from "./reuse-comp/reuse-delete/reuse-delete.component";
 import { ReuseHeaderComponent } from './reuse-comp/reuse-header/reuse-header.component';
 import { ReuseFooterComponent } from './reuse-comp/reuse-footer/reuse-footer.component';
+import { HttpClient } from '@angular/common/http';
 // import { QrScannerComponent } from './qrcode/qr-scanner/qr-scanner.component';
 
 @Component({
@@ -96,7 +97,7 @@ export class AppComponent {
     // Add your logic for the cancel action here (e.g., close the dialog)
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private http:HttpClient) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -104,9 +105,11 @@ export class AppComponent {
       document.title = 'Welcome to Angular App';
       console.log('This code runs only in the browser.');
     }
+
+    this.http.get('http://localhost:3000/items').subscribe(res => {
+      console.log(res,'res');
+    })
   }
-
-
 
   someMethod(): void {
     if (isPlatformBrowser(this.platformId)) {
